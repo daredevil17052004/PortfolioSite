@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --text: #0c190b;
+    --background: #f9fcf8;
+    --primary: #63ba5e;
+    --secondary: #a3d7ca;
+    --accent: #7bc0c6;
+  }
+  .dark {
+    --text: #e7f4e6;
+    --background: #040703;
+    --primary: #49a145;
+    --secondary: #285c50;
+    --accent: #397e84;
+  }
+}
+
+@layer base {
+  html {
+    @apply transition-colors duration-300;
+  }
+  
+  body {
+    @apply bg-background text-text; /* Ensure these variables exist */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
