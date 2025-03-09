@@ -6,11 +6,14 @@
 
 @layer base {
   :root {
-    --text: #0c190b;
+    --text: #e7f4e6;
     --background: #f9fcf8;
     --primary: #63ba5e;
     --secondary: #a3d7ca;
     --accent: #7bc0c6;
+    --glitch1: #2b4539;
+    --glitch2: #61dca3;
+    --glitch3: #61b3dc;
   }
   .dark {
     --text: #e7f4e6;
@@ -18,6 +21,9 @@
     --primary: #49a145;
     --secondary: #285c50;
     --accent: #397e84;
+    --glitch1: #d8efe3;
+    --glitch2: #7ae6b7;
+    --glitch3: #7ac4e6;
   }
 }
 
