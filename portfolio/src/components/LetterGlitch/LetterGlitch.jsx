@@ -29,8 +29,6 @@
     ];
     
 
-    const theme = localStorage.getItem('theme')
-
     const getRandomChar = () => {
       return lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
     };
