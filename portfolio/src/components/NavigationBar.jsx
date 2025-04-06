@@ -4,7 +4,11 @@ import { BiSearchAlt } from "react-icons/bi";
 import { Switch } from './ui/switch';
 import { Label } from './ui/label';
 import Link from 'next/link';
-import ThemeSwitcher from './ThemeSwitcher';
+import dynamic from 'next/dynamic';
+
+const ThemeSwitcher = dynamic(() => import("../components/ThemeSwitcher"), {
+    ssr: false, // Disable server-side rendering
+  });
 
 const CustomLink = ({ href, title, className = "" }) => {
     return (

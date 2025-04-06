@@ -5,25 +5,23 @@ export default function ThemeSwitcher() {
   const [theme, setTheme] = useState(null); // Start with null to avoid mismatch
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme") || "light";
-    setTheme(storedTheme);
+    if (typeof window !== "undefined") {  // ✅ Ensure it's running in the browser
+      const storedTheme = localStorage.getItem("theme") || "light";
+      setTheme(storedTheme);
 
-    if (storedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (theme) {
-      document.documentElement.classList.add('transition-colors', 'duration-300');
-      localStorage.setItem("theme", theme);
-      if (theme === "dark") {
+      if (storedTheme === "dark") {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && theme) { // ✅ Prevent server-side access
+      document.documentElement.classList.add('transition-colors', 'duration-300');
+      localStorage.setItem("theme", theme);
+      document.documentElement.classList.toggle("dark", theme === "dark");
     }
   }, [theme]);
 
@@ -31,15 +29,11 @@ export default function ThemeSwitcher() {
   if (!theme) return null;
 
   return (
-    <div className="">
-
-      <button
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-        className="p-2 text-text rounded-md w-40"
-      >
-        {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-      </button>
-    </div>
-
+    <button
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      className="p-2 text-text rounded-md w-40"
+    >
+      {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+    </button>
   );
 }

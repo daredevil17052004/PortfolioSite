@@ -1,3 +1,4 @@
+'use client'
 import NavigationBar from "@/components/NavigationBar";
 import LetterGlitch from "@/components/LetterGlitch/LetterGlitch";
 import Animation from "@/components/Animation";
