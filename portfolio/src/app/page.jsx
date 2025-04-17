@@ -1,74 +1,199 @@
-'use client'
-import NavigationBar from "@/components/NavigationBar";
-import LetterGlitch from "@/components/LetterGlitch/LetterGlitch";
-import Animation from "@/components/Animation";
-import Link from "next/link";
+import React from 'react';
+import NavigationBar from '@/components/NavigationBar';
+import LampDemo from '@/components/ui/lamp';
 
 export default function Home() {
   return (
-    <div className="relative w-full h-screen bg-transparent px-20 text-text font-chakra">
-      {/* LetterGlitch as Background */}
-      <div className="absolute top-0 left-0 w-full h-screen z-[-1]">
-        <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={false}
-          outerVignette={false}
-          smooth={true}
-        />
+    <div className="scroll-smooth">
+      <div className="w-full bg-slate-950 text-white font-chakra">
+        <div>
+          <NavigationBar />
+        </div>
+        <div>
+          <LampDemo />
+        </div>
+        
       </div>
 
-      <NavigationBar />
-      <div className="mt-20 relative flex justify-between items-center ">
-        <div>
-          <p className="text-5xl">
-            Hi, My name is <span className="text-accent">Ansh</span> Sharma
-            <span className="text-accent">.</span>
-          </p>
-          <p className="text-2xl pt-3">
-            A <span className="text-accent">FullStack Developer</span> and a learning{" "}
-            <span className="text-accent">DevOps Engineer</span>
-          </p>
-          <div className="mt-3 w-[800px] text-lg">
-            <p>
-              I’m a full-stack developer passionate about{" "}
-              <span className="text-accent">building scalable, high-performance applications.</span> My expertise spans{" "}
-              <span className="text-accent">backend and frontend development</span>, containerization, CI/CD, and infrastructure automation. I thrive at the intersection of code, deployment, and optimization, ensuring robust and efficient software solutions.
-              <br /> Beyond coding, I enjoy playing{" "}
-              <span className="text-accent">video games, jamming on the piano, and getting lost in a good book. </span>
-              <br />
-              Let’s build something amazing! 🚀
-            </p>
+      {/* About Section */}
+      <div id='about' className="w-full bg-slate-900 text-white font-chakra py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="rounded-xl bg-slate-800 p-6 h-full">
+              <div className="bg-slate-700 rounded-lg w-full h-64"></div>
+            </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-4 text-cyan-500">My Journey</h3>
+              <p className="text-gray-300 mb-6">
+                With over 5 years of experience in web development, I specialize in building modern, 
+                responsive applications using React, Next.js, and Node.js. My passion lies in creating 
+                intuitive user experiences backed by clean, efficient code.
+              </p>
+              <p className="text-gray-300 mb-6">
+                I've collaborated with startups and established companies alike, helping them 
+                transform their ideas into reality through thoughtful design and robust implementation.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="text-cyan-500 hover:text-cyan-400 flex items-center gap-2">
+                   GitHub
+                </a>
+                <a href="#" className="text-cyan-500 hover:text-cyan-400 flex items-center gap-2">
+                   LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <Animation />
-        </div>
       </div>
 
-      {/* call to action */}
-      <div className="mt-10 flex flex-col justify-between items-start h-40">
-        <div>
-          <Link href='/projects'>
-            <button className="p-[3px] relative" >
-              <div
-                className="absolute inset-0 bg-gradient-to-r from-accent to-primary rounded-lg" />
-              <div
-                className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-300 text-white hover:bg-transparent">
-                See my Work 👀
+      {/* Projects Section */}
+      <div className="w-full bg-slate-950 text-white font-chakra py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
+          <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+            A selection of my recent work spanning web applications, design systems, and open source contributions.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="bg-slate-900 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                <div className="h-48 bg-slate-800"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">Project {item}</h3>
+                  <p className="text-gray-400 mb-4">
+                    An interactive web application built with React and Next.js, featuring 
+                    real-time data visualization and user authentication.
+                  </p>
+                  <div className="flex gap-2">
+                    <span className="bg-cyan-900/30 text-cyan-500 text-xs px-2 py-1 rounded">React</span>
+                    <span className="bg-cyan-900/30 text-cyan-500 text-xs px-2 py-1 rounded">Next.js</span>
+                    <span className="bg-cyan-900/30 text-cyan-500 text-xs px-2 py-1 rounded">Tailwind</span>
+                  </div>
+                </div>
               </div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+            <button className="border border-gray-600 hover:border-cyan-500 px-6 py-3 rounded-lg font-medium flex items-center gap-2 mx-auto">
+              View All Projects 
             </button>
-          </Link>
-        </div>
-
-
-        <div>
-          <p className=" text-lg">Loving my work?</p>
-        </div>
-
-        <div className="">
-          <span className="text-xl">Let's get in touch, </span><Link href="/contact" className="text-xl underline hover:decoration-accent hover:text-accent transition-all duration-300 underline-offset-4">contact me here.</Link>
+          </div>
         </div>
       </div>
+
+      {/* Skills Section */}
+      <div className="w-full bg-slate-900 text-white font-chakra py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-16 text-center">My Skills</h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-slate-800 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center">1</div>
+                Frontend Development
+              </h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>• React & Next.js</li>
+                <li>• TypeScript</li>
+                <li>• Tailwind CSS</li>
+                <li>• Responsive Design</li>
+                <li>• State Management (Redux, Context)</li>
+              </ul>
+            </div>
+            
+            <div className="bg-slate-800 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">2</div>
+                Backend Development
+              </h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>• Node.js & Express</li>
+                <li>• RESTful APIs</li>
+                <li>• MongoDB & PostgreSQL</li>
+                <li>• Authentication & Security</li>
+                <li>• GraphQL</li>
+              </ul>
+            </div>
+            
+            <div className="bg-slate-800 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">3</div>
+                UI/UX Design
+              </h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>• Figma & Adobe XD</li>
+                <li>• Wireframing & Prototyping</li>
+                <li>• Design Systems</li>
+                <li>• User Research</li>
+                <li>• Accessibility</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div id='contact' className="w-full bg-slate-950 text-white font-chakra py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Let's Work Together</h2>
+            <p className="text-gray-300 mb-12">
+              I'm currently available for freelance work and open to discussing new opportunities.
+              Feel free to reach out if you have a project in mind or just want to connect!
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <a href="mailto:contact@example.com" className="bg-slate-900 p-6 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors">
+                {/* <Mail size={24} className="text-cyan-500" /> */}
+                <div className="text-left">
+                  <h3 className="font-semibold">Email Me</h3>
+                  <p className="text-gray-400">contact@example.com</p>
+                </div>
+              </a>
+              
+              <a href="#" className="bg-slate-900 p-6 rounded-xl flex items-center gap-4 hover:bg-slate-800 transition-colors">
+                {/* <Linkedin size={24} className="text-cyan-500" /> */}
+                <div className="text-left">
+                  <h3 className="font-semibold">Connect on LinkedIn</h3>
+                  <p className="text-gray-400">linkedin.com/in/alexchen</p>
+                </div>
+              </a>
+            </div>
+            
+            <div className="mt-12">
+              <button className="bg-cyan-600 hover:bg-cyan-700 px-8 py-4 rounded-lg font-medium text-lg">
+                Contact Me
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-gray-400 py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <p className="font-semibold text-xl text-white">Alex Chen</p>
+              <p>© 2025. All rights reserved.</p>
+            </div>
+            
+            <div className="flex gap-6">
+              <a href="#" aria-label="GitHub" className="hover:text-white">
+                {/* <GitHub size={20} /> */}
+              </a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-white">
+                {/* <Linkedin size={20} /> */}
+              </a>
+              <a href="#" aria-label="Email" className="hover:text-white">
+                {/* <Mail size={20} /> */}
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

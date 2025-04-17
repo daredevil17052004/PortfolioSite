@@ -25,10 +25,12 @@
     "react-dom": "^19.0.0",
     "react-element-to-jsx-string": "^17.0.0",
     "react-icons": "^5.5.0",
+    "react-three": "^0.9.7",
     "sonner": "^2.0.1",
     "tabler": "^1.0.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.175.0",
     "toaster": "^0.1.2"
   },
   "devDependencies": {

@@ -1,9 +1,7 @@
 import React from 'react'
-import LetterGlitch from '@/components/LetterGlitch/LetterGlitch'
 import NavigationBar from '@/components/NavigationBar'
 import projectdata from '../../../public/projects.json'
 import Image from 'next/image'
-import TiltedCard from '@/components/TiltedCard/TiltedCard'
 
 const page = () => {
 
@@ -11,15 +9,6 @@ const page = () => {
     return (
         <>
             <div className="relative w-full h-[200vh] bg-transparent px-20 text-text font-chakra">
-                {/* LetterGlitch as Background */}
-                <div className="absolute top-0 left-0 w-full h-[200vh] z-[-1]">
-                    <LetterGlitch
-                        glitchSpeed={50}
-                        centerVignette={false}
-                        outerVignette={false}
-                        smooth={true}
-                    />
-                </div>
 
                 <NavigationBar />
 

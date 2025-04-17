@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --text: #e7f4e6;
+    --text: #00000;
     --background: #f9fcf8;
     --primary: #63ba5e;
     --secondary: #a3d7ca;
@@ -38,3 +38,12 @@
   }
 }
 
+/* 
+@keyframes scroll {
+  0% { transform: translateX(30%); }
+  100% { transform: translateX(-30%); }
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite;
+} */
